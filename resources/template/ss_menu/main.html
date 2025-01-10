@@ -1,7 +1,7 @@
-
 </html>
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +10,22 @@
     <!-- <link rel="stylesheet" href="./res/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="width: {{data.width}}px">
         <div class="main">
             <div style="margin-top: 30px;"></div>
-            <div class="head-text">真寻BOT的使用方法</div>
-            <div class="help-text">可以通过'帮助[功能名称或功能ID]'来获取对应功能的使用方法</div>
+            <div class="top-center">
+                <div class="head-text" style="font-size: {{data.font_size[0]}}px">真寻BOT的使用方法</div>
+                <div class="help-text" style="font-size: {{data.font_size[1]}}px">可以通过'帮助[功能名称或功能ID]'来获取对应功能的使用方法</div>
+                <div class="help-text1" style="font-size: {{data.font_size[1]}}px">可以通过 <span>“详细帮助”</span>
+                    来获取所有功能的使用命令方法</div>
+            </div>
+            {% if is_detail %}
             <div class="avatar">
                 <img class="avatar-img" src="{{data.ava}}" alt="">
             </div>
+            {% endif %}
             <div class="menu-list">
                 {% for plugin in data['plugin_list'] %}
                 <div class='main-menu' style="width: {{ plugin.width }}%;">
@@ -27,7 +34,16 @@
                         {% for item_list in plugin['items'] %}
                         <ul style="margin-left: {{ item_list[0] }}px; margin-top: 23px; width: {{item_list[1]}}%;">
                             {% for item in item_list[2] %}
-                                <li>{{item.plugin_name}}</li>
+                            <li>
+                                {{item.plugin_name}}
+                                {% if item.commands %}
+                                <ul>
+                                    {% for command in item.commands %}
+                                    <li>{{command}}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </li>
                             {% endfor %}
                         </ul>
                         {% endfor %}
@@ -176,4 +192,5 @@
 </body>
 <script type="text/javascript" src="main.js">
 </script>
+
 </html>
