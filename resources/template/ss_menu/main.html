@@ -17,16 +17,24 @@
             <div style="margin-top: 30px;"></div>
             <div class="top-center">
                 <div class="head-text" style="font-size: {{data.font_size[0]}}px">真寻BOT的使用方法</div>
-                <div class="help-text" style="font-size: {{data.font_size[1]}}px">可以通过'帮助[功能名称或功能ID]'来获取对应功能的使用方法</div>
+                <!-- <div class="help-text" style="font-size: {{data.font_size[1]}}px">可以通过'帮助[功能名称或功能ID]'来获取对应功能的使用方法</div>
                 <div class="help-text1" style="font-size: {{data.font_size[1]}}px">可以通过 <span>“详细帮助”</span>
-                    来获取所有功能的使用命令方法</div>
+                    来获取所有功能的使用命令方法</div> -->
             </div>
-            {% if is_detail %}
-            <div class="avatar">
-                <img class="avatar-img" src="{{data.ava}}" alt="">
+            <div>
+                <p class="tip-class"><img class="tip-img" src="./res/img/111.png"><span
+                        style="font-size: {{data.font_size[1]}}px">通过“帮助[功能名称或功能ID]“来获取功能的使用方法</span></p>
+                <p class="tip-class"><img class="tip-img" src="./res/img/222.png"><span
+                        style="font-size: {{data.font_size[1]}}px">通过“详细帮助”来获取所有功能的指令和使用命令方法</span>
+                </p>
+                <p class="tip-class"><img class="tip-img" src="./res/img/333.png"><span
+                        style="font-size: {{data.font_size[1]}}px">群组管理员通过“管理员帮助”来获取的群组内权限命令</span>
+                </p>
             </div>
-            {% endif %}
             <div class="menu-list">
+                <div class="avatar">
+                    <img class="avatar-img" src="{{data.ava}}" alt="">
+                </div>
                 {% for plugin in data['plugin_list'] %}
                 <div class='main-menu' style="width: {{ plugin.width }}%;">
                     <div class="title">{{plugin.name}}</div>

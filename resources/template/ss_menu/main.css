@@ -53,8 +53,8 @@ body {
     width: 73px;
     border-radius: 50%;
     position: absolute;
-    top: 265px;
-    left: 40px;
+    left: 35px;
+    top: -15px;
     border: #F3868C 1px solid;
 }
 
@@ -122,10 +122,11 @@ body {
     height: calc(100% - 230px);
     /* background-color: blanchedalmond; */
     /* margin-left: 35px; */
-    margin-top: 60px;
+    margin-top: 30px;
     /* float: left; */
     display: flex; /* 使用flex布局 */
     flex-wrap: wrap;
+    position: relative;
 }
 
 
@@ -160,3 +161,20 @@ body {
     font-size: 25px;
     z-index: 1;
 }
+
+.tip-class {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F77B8E;
+    font-size: 19px;
+    margin: 5px 0;
+    font-family: 'fzrzFont';
+}
+
+.tip-img {
+    height: 30px;
+    margin-right: 10px;
+}
+
