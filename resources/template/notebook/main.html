@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>粉色笔记本</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="notebook-container">
+        {% for element in elements %}
+        {% if element.type == "heading" %}
+        <h{{ element.level }} class="notebook-heading-{{ element.level }}">
+            {{ element.text }}
+        </h{{ element.level }}>
+
+        {% elif element.type == "paragraph" %}
+        <p class="notebook-paragraph">{{ element.text }}</p>
+
+        {% elif element.type == "image" %}
+        <div class="notebook-image-container">
+            <img src="{{ element.src }}" alt="{{ element.caption }}" class="notebook-image">
+            {% if element.caption %}
+            <p class="notebook-image-caption">{{ element.caption }}</p>
+            {% endif %}
+        </div>
+
+        {% elif element.type == "blockquote" %}
+        <blockquote class="notebook-quote">{{ element.text }}</blockquote>
+
+        {% elif element.type == "code" %}
+        <pre class="notebook-code"><code class="{{ element.language }}">{{ element.code }}</code></pre>
+
+        {% elif element.type == "list" %}
+        {% if element.ordered %}
+        <ol class="notebook-list">
+            {% else %}
+            <ul class="notebook-list">
+                {% endif %}
+                {% for item in element.data %}
+                <li>{{ item }}</li>
+                {% endfor %}
+                {% if element.ordered %}
+        </ol>
+        {% else %}
+        </ul>
+        {% endif %}
+
+        {% elif element.type == "divider" %}
+        <hr class="notebook-divider">
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
