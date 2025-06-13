@@ -3,60 +3,64 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
-    <!-- <link rel="stylesheet" href="./res/font-awesome/css/font-awesome.min.css"> -->
+    <title>{{data.nickname}}的帮助</title>
     <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="main">
-            <div class="title">
-                {{data.nickname}}的{{data.help_name}}帮助
-            </div>
-            <div class="items-border">
+    <div class="help-container">
+        <header class="help-header">
+            <h1>{{data.nickname}}</h1>
+            <p>{{data.help_name}}帮助手册</p>
+        </header>
+
+        <main class="help-main">
             {% for plugin in data['plugin_list'] %}
-                <div class="items">
-                    <div class="item-title">
-                        {{plugin.name}}
-                    </div>
-                    <div class="item-des">
-                        简介: {{plugin.description}}
-                    </div>
-                    <div class="item-usage">
-                        <p class="usage-title">用法:</p>
-                        {{plugin.usage}}
+            <div class="plugin-card">
+                <div class="card-title">
+                    <svg class="title-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M768 128H256a128 128 0 0 0-128 128v512a128 128 0 0 0 128 128h512a128 128 0 0 0 128-128V256a128 128 0 0 0-128-128zm32 640a32 32 0 0 1-32 32H256a32 32 0 0 1-32-32V256a32 32 0 0 1 32-32h512a32 32 0 0 1 32 32v512z">
+                        </path>
+                        <path
+                            d="M384 448h256a32 32 0 0 1 0 64H384a32 32 0 0 1 0-64zm0 192h128a32 32 0 1 1 0 64H384a32 32 0 1 1 0-64z">
+                        </path>
+                    </svg>
+                    <h2>{{plugin.name}}</h2>
+                </div>
+
+                <div class="card-section">
+                    <p class="section-label">
+                        <svg class="label-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M512 64a448 448 0 1 1 0 896 448 448 0 0 1 0-896zm0 832a384 384 0 0 0 0-768 384 384 0 0 0 0 768zm-48-176h96a32 32 0 0 1 0 64h-96a32 32 0 0 1 0-64zm-2.24-453.696a32 32 0 0 1 44.8-19.136L512 296.608l7.424-15.424a32 32 0 1 1 44.8 19.136L512 420.352 461.76 266.304zM512 480a32 32 0 0 1 32 32v128a32 32 0 0 1-64 0v-128a32 32 0 0 1 32-32z">
+                            </path>
+                        </svg>
+                        功能简介
+                    </p>
+                    <p class="description">{{plugin.description}}</p>
+                </div>
+
+                <div class="card-section">
+                    <p class="section-label">
+                        <svg class="label-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M394.624 204.736L320 256l74.624 51.264L469.248 256l-74.624-51.264zM629.376 768l74.624 51.264L768 768l-74.624-51.264-64 51.264zm-256-1.856l-64-42.688-64 42.688L320 714.88l74.624 51.264zm256-508.416l-64 51.264L640 204.8l-74.624 52.992-64-51.264zm181.376 288l113.376 81.152-113.376 81.152V466.56zM153.6 547.712L40.256 466.56v162.304L153.6 547.712zM896 128H128a64 64 0 0 0-64 64v640a64 64 0 0 0 64 64h768a64 64 0 0 0 64-64V192a64 64 0 0 0-64-64zm0 704H128V192h768v640z">
+                            </path>
+                        </svg>
+                        使用方法
+                    </p>
+                    <div class="usage-wrapper">
+                        <pre>{{plugin.usage}}</pre>
                     </div>
                 </div>
-            {% endfor %}
             </div>
-            <!-- <div class="items">
-                <div class="item-title">
-                    刷屏禁言
-                </div>
-                <div class="item-des">
-                    简介: 刷屏禁言相关操作
-                </div>
-                <div class="item-usage">
-                    用法:<br>
-                    指令：<br>
-                    设置刷屏: 查看当前设置<br>
-                    -c [count]: 检测最大次数<br>
-                    -t [time]: 规定时间内<br>
-                    -d [duration]: 禁言时长<br>
-                    示例:<br>
-                        设置刷屏 -c 10: 设置最大次数为10<br>
-                        设置刷屏 -t 100 -d 20: 设置规定时间和禁言时长<br>
-                        设置刷屏 -d 10: 设置禁言时长为10<br>
-                    * 即 X 秒内发送同样消息 N 次，禁言 M 分钟 *
-                </div>
-            </div> -->
-        </div>
+            {% endfor %}
+        </main>
+
+        {% include 'partials/_footer.html' %}
     </div>
 </body>
-<script type="text/javascript" src="main.js">
-</script>
 
 </html>

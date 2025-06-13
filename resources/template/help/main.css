@@ -1,100 +1,152 @@
-
-
 @font-face {
-    font-family: fzrzFont;
-    /* 导入的字体文件 */
-    src: url("../../font/fzrzExtraBold.ttf");
+  font-family: AlibabaHealthFont2;
+  src: url("../../font/AlibabaHealthFont2.0CN-85B.ttf");
+}
+
+/* 全局重置与基础设定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    position: absolute;
-    left: -8px;
-    top: -8px;
+  font-family: "AlibabaHealthFont2";
+  /* 使用一个非常浅的粉色作为背景，呼应主题 */
+  background: #fffafa;
+  padding: 20px;
 }
 
-.wrapper{
-    width: 1400px;
-    position: relative;
-    background-image: url('res/img/bk.jpg');
-    background-size: cover;
-    font-family: 'cr105Font';
-    padding: 20px;
+/* 最外层容器，定义图片总宽度和基本样式 */
+.help-container {
+  width: 680px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 16px;
+  /* 使用主题色的柔和阴影 */
+  box-shadow: 0 10px 40px rgba(246, 113, 134, 0.15);
+  overflow: hidden;
+  border: 1px solid #fee8eb; /* 主题色边框 */
 }
 
-
-.title {
-    font-size: 60px;
-    font-family: 'fzrzFont';
-    /* margin-left: 40px; */
-    /* color: #F67186; */
-    background: linear-gradient(to right, #F67186, #F7889C);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-align: center;
+/* --- 头部 --- */
+.help-header {
+  /* 恢复您指定的渐变色 */
+  background: linear-gradient(135deg, #f67186, #f7889c);
+  color: #fff;
+  padding: 24px 30px;
+  text-align: center;
 }
 
-.main {
-    background-image: url('res/img/main.png');
-    background-size: 100% 100%;
-    /* background-size: cover; */
-    height: 100%;
-    width: 1370px;
-    position: relative;
-    padding: 20px;
-    /* box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.5); */
+.help-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.items-border {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 18px;
+.help-header p {
+  font-size: 16px;
+  opacity: 0.9;
 }
 
-.items {
-    border: #F67186 2px solid;
-    border-radius: 20px;
-    width: 675px;
-    padding: 30px;
-    max-width: 600px;
+/* --- 主要内容区域 --- */
+.help-main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* 卡片之间的间距 */
 }
 
-.item-title {
-    background-image: url('res/img/title.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 55px;
-    width: 350px;
-    font-family: 'fzrzFont';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 35px;
-    border-radius: 16px;
-    letter-spacing:4px;
+/* --- 功能卡片 --- */
+.plugin-card {
+  border: 1px solid #fde2e6; /* 主题色边框 */
+  border-radius: 12px;
+  background-color: #fff; /* 卡片使用纯白背景以突出内容 */
+  transition: all 0.2s ease-in-out;
 }
 
-.usage-title {
-    font-size: 30px;
-    position: absolute;
-    top: -30px;
+/* --- 卡片标题 --- */
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  /* 使用粉色作为标题栏底色 */
+  background-color: #f67186;
+  border-bottom: 1px solid #f67186;
 }
 
-.item-des {
-    color: #F78094;
-    border-radius: 20px;
-    font-family: 'fzrzFont';
-    font-size: 30px;
-    padding: 10px;
+.card-title h2 {
+  font-size: 18px;
+  font-weight: 700;
+  /* 标题文字为白色，确保对比度 */
+  color: #ffffff;
 }
 
-.item-usage {
-    color: #F78094;
-    border-radius: 20px;
-    font-family: 'fzrzFont';
-    font-size: 20px;
-    border: #F67186 5px dotted;
-    padding: 60px 10px 10px 10px;
-    position: relative;
+.title-icon {
+  width: 20px;
+  height: 20px;
+  /* 图标也为白色 */
+  fill: #ffffff;
+}
+
+/* 卡片内容分区（简介、用法） */
+.card-section {
+  padding: 16px;
+  font-size: 15px;
+}
+
+/* 分区的小标题 ("功能简介", "使用方法") */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  /* 小标题使用主题粉色 */
+  color: #f67186;
+  margin-bottom: 12px;
+}
+
+.label-icon {
+  width: 16px;
+  height: 16px;
+  /* 小标题图标也使用主题粉色 */
+  fill: #f67186;
+}
+
+/* 功能简介文本 - 使用深色保证可读性 */
+.description {
+  color: #333; /* 核心可读性保证 */
+  line-height: 1.7;
+  padding-left: 24px;
+}
+
+/* 用法区域包裹 */
+.usage-wrapper {
+  background-color: #282c34; /* 深色代码背景依旧是最佳选择 */
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: -4px;
+}
+
+.usage-wrapper pre {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+  font-size: 14px;
+  /* 代码文本使用主题粉色，与深色背景形成对比 */
+  color: #f7889c;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+/* --- 底部 --- */
+.help-footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 13px;
+  /* 页脚使用主题色 */
+  color: #f67186;
+  background-color: #fffafa; /* 使用和body一致的浅粉色 */
+  border-top: 1px solid #fde2e6;
 }
