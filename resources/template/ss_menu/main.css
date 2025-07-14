@@ -1,180 +1,279 @@
-
-
 @font-face {
-    font-family: fzrzFont;
-    /* 导入的字体文件 */
-    src: url("../../font/fzrzExtraBold.ttf");
+  font-family: fzrzFont;
+  src: url("../../font/fzrzExtraBold.ttf");
 }
 
 @font-face {
-    font-family: syhtFont;
-    /* 导入的字体文件 */
-    src: url("../../font/syht.otf");
+  font-family: syhtFont;
+  src: url("../../font/syht.otf");
 }
 
 @font-face {
-    font-family: systFont;
-    /* 导入的字体文件 */
-    src: url("../../font/syst.otf");
+  font-family: systFont;
+  src: url("../../font/syst.otf");
 }
-
-
 
 body {
-    position: absolute;
-    left: -8px;
-    top: -8px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-.wrapper{
-    /* height: 1321px; */
-    width: 637px;
-    background-image: url('res/img/bk.jpg');
-    background-size: cover;
-    position: relative;
-    font-family: 'cr105Font';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-.zx-img {
-    position: absolute;
-    width: 222px;
-    bottom: 0;
-    right: 3px;
-    z-index: 0;
-}
-
-.avatar {
-    height: 73px;
-    width: 73px;
-    border-radius: 50%;
-    position: absolute;
-    left: 35px;
-    top: -15px;
-    border: #F3868C 1px solid;
-}
-
-.avatar-img {
-    height: 73px;
-    width: 73px;
-    border-radius: 50%;
+.wrapper {
+  width: 637px; /* 或根据你的数据动态设置 */
+  background-image: url("res/img/bk.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: "syhtFont", sans-serif; /* 统一字体，或根据需要调整 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  box-sizing: border-box;
+  min-height: 100vh; /* 确保页面至少占满视口高度 */
 }
 
 .main {
-    height: auto;
-    width: 100%;
-    position: relative;
-    background-color: white;
-    opacity: 0.9;
-    border-radius: 30px;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 100%;
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 30px;
+  padding: 20px; /* 增加内边距 */
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 添加一些阴影效果 */
 }
 
-.top-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 居中头像和标题 */
+  margin-bottom: 20px;
+  position: relative; /* 为头像定位提供基准 */
+  padding-top: 15px; /* 为头像留出空间 */
 }
 
+.avatar {
+  height: 73px;
+  width: 73px;
+  border-radius: 50%;
+  position: absolute;
+  left: 35px; /* 调整位置 */
+  top: -15px;
+  border: 3px solid #f3868c; /* 加粗边框 */
+  box-shadow: 0 0 10px rgba(243, 134, 140, 0.5); /* 添加头像发光效果 */
+  z-index: 2; /* 确保头像在最上层 */
+}
+
+.avatar-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover; /* 确保图片不变形 */
+}
+
+.header-content {
+  text-align: center;
+  margin-left: 80px; /* 为头像腾出空间 */
+}
 
 .head-text {
-    font-size: 53px;
-    font-family: 'fzrzFont';
-    /* color: #F67186; */
-    background: linear-gradient(to right, #F67186, #F7889C);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  font-size: 53px;
+  font-family: "fzrzFont", sans-serif;
+  background: linear-gradient(to right, #f67186, #f7889c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 5px; /* 调整标题与标语间距 */
+  letter-spacing: 2px; /* 调整字间距 */
 }
 
-.help-text {
-    font-size: 19px;
-    font-family: 'systFont';
-    /* color: #F67186; */
-    background: linear-gradient(to right, #F67186, #F7889C);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.tagline {
+  font-size: 19px;
+  font-family: "systFont", sans-serif;
+  color: #f77b8e; /* 统一颜色 */
+  margin-top: 0;
 }
 
-.help-text1 {
-    font-size: 19px;
-    font-family: 'systFont';
-    /* color: #F67186; */
-    background: linear-gradient(to right, #F67186, #F7889C);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.help-text1 span {
-    font-weight: 900;
-}
-
-.menu-list {
-    width: 100%;
-    height: calc(100% - 230px);
-    /* background-color: blanchedalmond; */
-    /* margin-left: 35px; */
-    margin-top: 30px;
-    /* float: left; */
-    display: flex; /* 使用flex布局 */
-    flex-wrap: wrap;
-    position: relative;
-}
-
-
-.main-menu {
-    /* width: 100%; */
-    z-index: 1;
-}
-
-.title {
-    height: 45px;
-    width: 225px;
-    background-image: url('res/img/title.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background: linear-gradient(to right, #F67186, #F7889C); */
-    font-family: 'fzrzFont';
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 30px;
-    border-radius: 16px;
-    letter-spacing:4px;
-    margin: 0 auto;
-}
-
-.plugin-list {
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    font-family: 'syhtFont';
-    font-size: 25px;
-    z-index: 1;
+.tips-section {
+  margin: 20px 0 30px; /* 调整上下间距 */
+  padding: 0 15px; /* 左右内边距 */
 }
 
 .tip-class {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #F77B8E;
-    font-size: 19px;
-    margin: 5px 0;
-    font-family: 'fzrzFont';
+  display: flex;
+  align-items: center;
+  color: #f77b8e;
+  font-size: 19px;
+  margin: 8px 0; /* 增加行间距 */
+  font-family: "fzrzFont", sans-serif;
+}
+
+.tip-class span {
+  background: linear-gradient(to right, #f67186, #f7889c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: normal; /* 保持正常字重 */
+}
+
+.tip-class span strong {
+  font-weight: bold; /* 对强调部分加粗 */
 }
 
 .tip-img {
-    height: 30px;
-    margin-right: 10px;
+  height: 25px; /* 调整图标大小 */
+  margin-right: 12px;
+  vertical-align: middle; /* 垂直居中图片 */
 }
 
+.menu-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 左对齐 */
+  position: relative;
+  padding-bottom: 50px; /* 为右下角图片留出空间 */
+}
+
+.main-menu {
+  width: 50%; /* 默认两列布局 */
+  padding: 10px; /* 增加内边距 */
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.title {
+  height: 45px;
+  width: 200px; /* 调整标题宽度 */
+  background-image: url("res/img/title.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "fzrzFont", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px; /* 调整字体大小 */
+  border-radius: 16px;
+  letter-spacing: 3px; /* 调整字间距 */
+  margin: 15px auto 20px; /* 调整上下外边距 */
+  box-shadow: 0 2px 8px rgba(246, 113, 134, 0.4); /* 添加标题阴影 */
+}
+
+.plugin-items {
+  display: flex;
+  flex-wrap: wrap; /* 允许换行 */
+  font-family: "syhtFont", sans-serif;
+  font-size: 20px; /* 调整字体大小 */
+  z-index: 1;
+  padding: 0 5px; /* 左右内边距 */
+}
+
+.plugin-items ul {
+  list-style: none; /* 移除默认列表样式 */
+  padding: 0;
+  margin: 0;
+  width: 100%; /* 确保 ul 占据其父容器的宽度 */
+}
+
+.plugin-item {
+  background-color: #ffeef0; /* 浅粉色背景 */
+  border-left: 5px solid #f67186; /* 左侧强调线 */
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08); /* 轻微阴影 */
+  display: flex;
+  flex-direction: column; /* 垂直排列内容 */
+  transition: transform 0.2s ease-in-out; /* 添加悬停动画 */
+}
+
+.plugin-item:hover {
+  transform: translateY(-3px); /* 悬停时上浮 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 悬停时加深阴影 */
+}
+
+.item-name {
+  font-weight: bold;
+  color: #d1496a; /* 插件名称颜色 */
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* 允许标签换行 */
+  margin-bottom: 8px;
+}
+
+.status,
+.tag {
+  font-size: 16px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* 图标与文字间距 */
+}
+
+.status.available {
+  background-color: #e6ffe6; /* 浅绿色背景 */
+  color: #4caf50; /* 绿色文字 */
+  border: 1px solid #4caf50;
+}
+
+.status.unavailable {
+  background-color: #ffeeee; /* 浅红色背景 */
+  color: #f44336; /* 红色文字 */
+  border: 1px solid #f44336;
+}
+
+.tag.superuser {
+  background-color: #f5e6ff; /* 浅紫色背景 */
+  color: #9c27b0; /* 紫色文字 */
+  border: 1px solid #9c27b0;
+}
+
+.tag.hot {
+  background-color: #fff0e6; /* 浅橙色背景 */
+  color: #ff9800; /* 橙色文字 */
+  border: 1px solid #ff9800;
+}
+
+.status i,
+.tag i {
+  font-size: 14px;
+}
+
+.command-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.command-list li {
+  font-family: "systFont", monospace; /* 使用等宽字体或更简洁的字体 */
+  font-size: 18px;
+  color: #666; /* 命令文字颜色 */
+  background-color: #f8f8f8; /* 命令背景色 */
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-top: 5px;
+  display: inline-block; /* 让命令像标签一样排列 */
+  margin-right: 5px;
+  border: 1px solid #eee;
+}
+
+.zx-img {
+  position: absolute;
+  width: 180px; /* 调整图片大小 */
+  bottom: 10px; /* 调整位置 */
+  right: 10px; /* 调整位置 */
+  z-index: 0;
+  opacity: 0.8; /* 调整透明度 */
+}
