@@ -1,0 +1,55 @@
+/* [修改] 引入基础卡片样式 */
+{% include 'partials/_base_card.css' %}
+
+/* 以下是 info_card 特有的样式 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "AlibabaHealthFont2";
+}
+.app-subtitle {
+  font-size: 16px;
+  color: #f7889c; /* 渐变色，暂时保留 */
+  margin: 0;
+}
+
+.zx-img1 {
+  position: absolute;
+  width: 180px;
+  bottom: -22px;
+  right: -27px;
+  z-index: 1;
+}
+
+.zx-img3 {
+  float: right; 
+  width: 180px; /* 控制图片宽度 */
+  height: auto; /* 高度自适应 */
+  margin-left: 10px; /* 图片左侧与文字的间距 */
+  margin-bottom: 10px; /* 图片底部与文字的间距 */
+  shape-outside: margin-box; /* 可选：让文字更自然环绕 */
+  border-radius: 8px; /* 可选：圆角 */
+}
+
+/* 图片右浮动 */
+.float-right {
+  float: right;
+}
+
+/* 图片左浮动（如需另一侧环绕） */
+.float-left {
+  float: left;
+}
+
+/* 清除浮动（防止后续内容错乱） */
+.section-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
