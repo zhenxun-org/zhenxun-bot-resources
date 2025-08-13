@@ -8,6 +8,23 @@
     <script src="{{ theme.asset('js/echarts.min.js') }}"></script>
     <title>用户信息卡片</title>
 
+    <style>
+        @font-face {
+            font-family: fzrzFont;
+            src: url("{{ theme.asset('fonts/HYWenHei-85W.ttf') }}");
+        }
+
+        @font-face {
+            font-family: systFont;
+            src: url("{{ theme.asset('fonts/syst.otf') }}");
+        }
+
+        @font-face {
+            font-family: syhtFont;
+            src: url("{{ theme.asset('fonts/syht.otf') }}");
+        }
+    </style>
+    
     <style>{% include 'pages/builtin/my_info/main.css' %}</style>
 
 
@@ -17,10 +34,10 @@
     <div class="wrapper">
         <div class="main">
             <div class="main-content">
-    <div class="top-bar">
-        <span>{{ data.page.date }}</span>
-        <img src="{{ theme.asset('my_info/img/' + data.page.weather_icon_name + '.png') }}">
-    </div>
+                <div class="top-date">{{ data.page.date }}......
+                    <img src="{{ theme.asset('my_info/img/' + data.page.weather_icon_name + '.png') }}" alt="weather" class="weather-img" />
+                    <span style="margin-left: 180px;">{{ data.page.temperature }}℃</span>
+                </div>
                 <div class="user-info">
                     <div class="user-info-ava">
                         <img src="{{data.info.avatar_url}}" alt="avatar" class="ava-img" />

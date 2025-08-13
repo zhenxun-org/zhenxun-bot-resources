@@ -15,14 +15,17 @@
         <div class="split" style="margin-top: 30px;"></div>
         <div class="top-head"></div>
         <div class="shop-border">
-
+            {% set left_images = ["qq.png", "xx1.png", "xx2.png"] %}
+            {% set right_images = ["1.png", "2.png", "3.png", "4.png", "5.png"] %}
             {% for category in data.categories %}
             <div class="shop-item">
                 <div class="shop-item-title">
                     <span class="shop-item-title-text">{{ category.partition_title }}</span>
                 </div>
                 <div class="shop-item-border">
-                    <div class="shop-item-left"></div>
+                    <div class="shop-item-left">
+                        <img src="{{ theme.asset('shop/img/left_right/' + left_images[loop.index0 % left_images|length]) }}" class="shop-item-left-qq left-img" />
+                    </div>
                     <div class="shop-item-mid">
                         <div class="shop-item-mid-bk-inner"></div>
                         <div class="shop-item-mid-bk-out">
@@ -89,7 +92,9 @@
                         <img src="{{ theme.asset('shop/img/bag1.png') }}" class="shop-item-mid-bag1" />
                         <img src="{{ theme.asset('shop/img/bag2.png') }}" class="shop-item-mid-bag2" />
                     </div>
-                    <div class="shop-item-right"></div>
+                    <div class="shop-item-right">
+                        <img src="{{ theme.asset('shop/img/left_right/' + right_images[loop.index0 % right_images|length]) }}" class="shop-item-right-zx right-img" />
+                    </div>
                 </div>
             </div>
             {% endfor %}

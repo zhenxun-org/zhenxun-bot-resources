@@ -82,10 +82,10 @@
             {% endif %}
         </div>
         <div class="line"></div>
-        <div class="bottom-foot">
+            <div class="bottom-foot">
             <p class="cur-text">当前好感度: {{ "%.2f"|format(data.favorability.current) }}</p>
             <div class="heart-list">
-                {% for i in range(10) %}
+                {% for i in range(9) %}
                     {% if i < data.favorability.level %}
                         <img class="heart-img" src="{{ theme.asset('sign/img/h2.png') }}" alt="" />
                     {% else %}

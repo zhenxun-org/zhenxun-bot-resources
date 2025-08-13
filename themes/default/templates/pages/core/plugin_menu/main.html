@@ -15,7 +15,7 @@
         <div class="main">
             <div class="header">
                 <div class="header-top">
-                    <div class="logo-section"><img class="logo-img" src="{{ theme.asset('menu/img/sider_left_t.png') }}" alt="Logo"></div>
+                    {% include 'pages/core/plugin_menu/_header_decorations.html' ignore missing %}
                     <div class="divider"></div>
                     <div class="top-info">
                         <div class="avatar"><img class="avatar-img" src="{{data.bot_avatar_url}}" alt="{{data.bot_name}}"></div>
@@ -63,7 +63,7 @@
                 </div>
                 {% endfor %}
             </div>
-            <img src="{{ theme.asset('plugin_menu/footer_char.png') }}" class="zx-img" />
+            {% include 'pages/core/plugin_menu/_footer_decorations.html' ignore missing %}
         </div>
     </div>
 {% endblock %}
