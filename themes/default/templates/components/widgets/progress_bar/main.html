@@ -1,0 +1,38 @@
+<style>
+    @keyframes progress-bar-stripes {
+        from { background-position: 1rem 0; }
+        to { background-position: 0 0; }
+    }
+    .progress-container {
+        display: flex;
+        height: 1.2rem;
+        overflow: hidden;
+        font-size: .75rem;
+        background-color: #e9ecef;
+        border-radius: .25rem;
+    }
+    .progress-bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: var(--color-text-light);
+        text-align: center;
+        white-space: nowrap;
+        transition: width .6s ease;
+    }
+    .progress-bar.animated {
+        background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+        background-size: 1rem 1rem;
+        animation: progress-bar-stripes 1s linear infinite;
+    }
+    .progress-bar.primary { background-color: var(--color-primary); }
+    .progress-bar.success { background-color: var(--color-accent-green); }
+    .progress-bar.warning { background-color: #E6A23C; }
+    .progress-bar.error { background-color: var(--color-accent-red); }
+    .progress-bar.info { background-color: #909399; }
+</style>
+<div class="progress-container">
+    <div class="progress-bar {{ data.color_scheme }} {% if data.animated %}animated{% endif %}" style="width: {{ data.progress }}%;">
+        {{ data.label if data.label else '' }}
+    </div>
+</div>

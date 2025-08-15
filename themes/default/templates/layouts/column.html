@@ -1,0 +1,22 @@
+{% extends 'layouts/_base.html' %}
+
+{% block layout_style %}
+<style>
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: {{ data.options.gap | default('10px') }};
+        align-items: {{ data.options.align_items | default('center') }};
+    }
+    img {
+        max-width: 100%;
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block layout_content %}
+    {% for item in data.items %}
+        <img src="{{ item.src }}" />
+    {% endfor %}
+{% endblock %}
