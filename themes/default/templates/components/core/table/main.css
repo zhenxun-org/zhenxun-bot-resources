@@ -78,6 +78,7 @@ tbody tr:last-child td {
     font-size: 13px;
     font-weight: bold;
     color: white;
+    white-space: nowrap;
 }
 
 .status-badge.ok { background-color: var(--color-accent-green); }

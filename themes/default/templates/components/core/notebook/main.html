@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>Notebook</title> <!-- 标题可以通用一些 -->
-    <style>{{ theme_css | safe }}</style>
-    <style>{% include 'components/core/notebook/main.css' %}</style>
-</head>
+<style>{% include 'components/core/notebook/main.css' %}</style>
 
-<body>
-    {# [核心修改] 添加条件渲染块 #}
-    {% if not frameless %}
-    <div class="notebook-container">
-    {% endif %}
+{% if not frameless %}
+<div class="notebook-container">
+{% endif %}
         {% for element in data.elements %}
         {% if element.type == "heading" %}
         <h{{ element.level }} class="notebook-heading-{{ element.level }}">
@@ -53,18 +45,11 @@
         {% elif element.type == "divider" %}
         <hr class="notebook-divider">
 
-        {% elif element.type == "component" %}
-            {# [核心修改] 使用 with 块来为动态 include 传递上下文 #}
-            {% with data=element.component_data %}
-                {% include element.component_data.template_name %}
-            {% endwith %}
-
-        {% endif %}
+       {% elif element.type == "component" %}
+        {{ element.html_content | safe }}
+    {% endif %}
         {% endfor %}
 
-    {% if not frameless %}
-    </div>
-    {% endif %}
-</body>
-
-</html>
+{% if not frameless %}
+</div>
+{% endif %}

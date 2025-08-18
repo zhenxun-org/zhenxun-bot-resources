@@ -1,36 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <title>{{ data.title }}</title>
-    <script src="{{ theme.asset('js/echarts.min.js') }}"></script>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ data.title }}{% endblock %}</title>
+
     <style>
-        body { margin: 0; padding: 20px; box-sizing: border-box; }
-        #chart-container {
-            width: 960px;
-            height: 600px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        {% include 'theme.css.jinja' %}
     </style>
-    {% block extra_styles %}{% endblock %}
+
+    <script src="{{ theme.asset('js/echarts.min.js') }}"></script>
+
+    <style>
+        body { margin: 0; box-sizing: border-box; }
+    </style>
+    {% block head_extra %}{% endblock %}
 </head>
 <body>
-    <div id="chart-container"></div>
-    <script type="text/javascript">
-        var myChart = echarts.init(document.getElementById('chart-container'));
-        var option = {
-            title: {
-                text: {{ data.title | tojson }},
-                left: 'center',
-                textStyle: { color: '#333', fontSize: 24 }
-            },
-            tooltip: { trigger: 'item' },
-            legend: { top: 'bottom' },
-            {% block chart_option %}
-            {% endblock %}
-        };
-        myChart.setOption(option);
-    </script>
+
+{% block body_content %}{% endblock %}
+
+
+    {% block page_scripts %}{% endblock %}
+
 </body>
 </html>
