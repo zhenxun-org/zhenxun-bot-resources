@@ -26,7 +26,7 @@
                 <span>{{ category.title }}</span>
             </div>
 
-            {% set items_list = category.items %}
+            {% set items_list = category['items'] %}
             {% for item in items_list %}
             <div class="item-card">
                 <h4>{{ item.name }}</h4>

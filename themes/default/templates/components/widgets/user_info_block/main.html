@@ -43,7 +43,9 @@
         color: #495057;
     }
 </style>
+{% if not frameless %}
 <div class="user-info-block">
+{% endif %}
     <img class="user-info-avatar" src="{{ data.avatar_url }}" alt="avatar">
     <div class="user-info-text">
         <div class="user-info-name">{{ data.name }}</div>
@@ -58,4 +60,6 @@
         </div>
         {% endif %}
     </div>
+{% if not frameless %}
 </div>
+{% endif %}
