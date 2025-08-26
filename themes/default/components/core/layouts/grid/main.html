@@ -1,0 +1,31 @@
+{% extends 'partials/_base.html' %}
+
+{% block head_extra %}
+<style>
+    body { margin: 0; background-color: #fce4ec; }
+    .layout-wrapper {
+        padding: {{ data.options.padding | default('25px') }};
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat({{ data.options.columns | default(2) }}, 1fr);
+        gap: {{ data.options.gap | default('20px') }};
+        align-items: {{ data.options.align_items | default('stretch') }};
+    }
+    .layout-item {
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
+{% endblock %}
+
+{% block body_content %}
+    <div class="layout-wrapper {{ data.extra_classes | join(' ') if data.extra_classes }}" style="{{ data.inline_style_str }}">
+        {% for item in data.children %}
+            <div class="layout-item">
+                {{ render(item.component) }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
