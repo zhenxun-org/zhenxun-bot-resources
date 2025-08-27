@@ -1,0 +1,16 @@
+.page-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    padding: 40px;
+    box-sizing: border-box;
+    width: 95%;
+}

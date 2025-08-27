@@ -1,0 +1,23 @@
+/*
+ * ===================================================================
+ * Base Styles - Assembled by Jinja2
+ * ===================================================================
+ */
+@layer reset, base, components, utilities;
+/* Import CSS Variables */
+@layer base {
+    {% include 'assets/css/base/_variables.css.jinja' %}
+    {% include 'assets/css/base/_fonts.css' %}
+}
+@layer reset {
+    /* Import Resets and Global Styles */
+    {% include 'assets/css/base/_reset.css' %}
+}
+/*
+ * ===================================================================
+ * Utility Classes
+ * ===================================================================
+ */
+@layer utilities {
+    {% include 'assets/css/base/_utilities.css.jinja' %}
+}

@@ -1,0 +1,33 @@
+{% if not frameless %}
+{% extends 'partials/_base.html' %}
+{% endif %}
+
+{% block head_extra %}
+<style>
+    body { margin: 0; background-color: transparent; }
+    .layout-wrapper {
+        padding: {{ data.options.padding | default('0px') }};
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        gap: {{ data.options.gap }};
+        align-items: {{ data.options.align_items }};
+    }
+    .layout-item {
+        max-width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block body_content %}
+    {% from 'partials/_component_macros.jinja' import wrapper %}
+    {% call wrapper(data, 'layout-wrapper') %}
+        {% for item in data.children %}
+        <div class="layout-item">
+            {{ render(item.component) }}
+        </div>
+        {% endfor %}
+    {% endcall %}
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "AlibabaHealthFont2";
+    src: url("{{ asset('fonts/AlibabaHealthFont2.0CN-85B.ttf') }}");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "fzrzFont";
+    src: url("{{ asset('fonts/fzrzExtraBold.ttf') }}");
+}
+
+@font-face {
+    font-family: "systFont";
+    src: url("{{ asset('fonts/syst.otf') }}");
+}
