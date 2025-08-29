@@ -37,6 +37,26 @@
                                   style="font-weight: {{ 'bold' if cell.bold else 'normal' }}; color: {{ cell.color if cell.color else 'inherit' }};">
                                 {{ cell.content }}
                             </span>
+                        {% elif cell and cell.type == 'rich_text' %}
+                            <div class="rich-text-cell" style="display: flex; flex-direction: {{ cell.direction }}; gap: {{ cell.gap }};">
+                                {% for span in cell.spans %}
+                                    {% set classes = ['rich-text-span'] %}
+                                    {% if span.bold %}{% set _ = classes.append('bold') %}{% endif %}
+                                    {% if span.italic %}{% set _ = classes.append('italic') %}{% endif %}
+                                    {% if span.underline %}{% set _ = classes.append('underline') %}{% endif %}
+                                    {% if span.strikethrough %}{% set _ = classes.append('strikethrough') %}{% endif %}
+                                    {% if span.code %}{% set _ = classes.append('code') %}{% endif %}
+
+                                    {% set styles = [] %}
+                                    {% if span.color %}{% set _ = styles.append('color: ' ~ span.color) %}{% endif %}
+                                    {% if span.font_size %}{% set _ = styles.append('font-size: ' ~ span.font_size) %}{% endif %}
+                                    {% if span.font_family %}{% set _ = styles.append('font-family: ' ~ span.font_family) %}{% endif %}
+
+                                    <span class="{{ classes | join(' ') }}" style="{{ styles | join('; ') }}">
+                                        {{ span.text | safe }}
+                                    </span>
+                                {% endfor %}
+                            </div>
                         {% elif cell and cell.type == 'badge' %}
                             <span class="status-badge {{ cell.status_type }}">
                                 {{ cell.text }}
