@@ -1,7 +1,8 @@
+html,
 body {
-    position: absolute;
-    left: -8px;
-    top: -8px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-my-info-primary);
 }
 
 .wrapper{
