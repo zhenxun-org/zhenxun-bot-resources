@@ -1,6 +1,7 @@
 {
   "animation": false,
   "title": {
+    "top": 4,
     "textStyle": {
       "color": "{{ theme.palette.colors.text_light }}",
       "fontSize": 32,
@@ -15,8 +16,8 @@
   "grid": {
     "left": "24%",
     "right": "12%",
-    "top": "15%",
-    "bottom": "5%",
+    "top": 82,
+    "bottom": 26,
     "containLabel": false
   },
   "xAxis": {
