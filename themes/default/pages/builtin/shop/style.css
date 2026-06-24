@@ -1,7 +1,9 @@
 /* [新增]: 此文件包含从 main.html 移动过来的所有样式 */
+html,
 body {
-    position: absolute;
-    left: -8px; top: -8px;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-shop-page-bg);
 }
 .wrapper {
     width: 850px;

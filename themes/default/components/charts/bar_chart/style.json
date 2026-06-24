@@ -1,5 +1,7 @@
 {
+  "animation": false,
   "title": {
+    "top": 4,
     "textStyle": {
       "color": "{{ theme.palette.colors.text_light }}",
       "fontSize": 32,
@@ -12,29 +14,48 @@
     }
   },
   "grid": {
-    "left": "1%",
-    "right": "10%",
-    "top": "15%",
-    "bottom": "5%",
+    "left": "24%",
+    "right": "12%",
+    "top": 82,
+    "bottom": 26,
     "containLabel": false
   },
   "xAxis": {
     "show": false
   },
   "yAxis": {
-    "show": false
+    "show": true,
+    "axisLine": {
+      "show": false
+    },
+    "axisTick": {
+      "show": false
+    },
+    "axisLabel": {
+      "color": "{{ theme.palette.colors.text_light }}",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "width": 180,
+      "overflow": "truncate",
+      "textShadowColor": "rgba(0, 0, 0, 0.9)",
+      "textShadowBlur": 6,
+      "textShadowOffsetX": 1,
+      "textShadowOffsetY": 1
+    }
   },
   "series": [{
     "label": {
       "show": true,
-      "position": "insideLeft",
-      "padding": [0, 0, 0, 10],
+      "position": "right",
+      "padding": [0, 0, 0, 8],
       "color": "{{ theme.palette.colors.text_light }}",
-      "fontSize": 16,
+      "fontSize": 17,
       "fontWeight": "bold",
-      "textShadowColor": "rgba(0, 0, 0, 0.8)",
-      "textShadowBlur": 2,
-      "formatter": "{b}    {c}"
+      "textBorderColor": "rgba(0, 0, 0, 0.65)",
+      "textBorderWidth": 2,
+      "textShadowColor": "rgba(0, 0, 0, 0.85)",
+      "textShadowBlur": 5,
+      "formatter": "{c}"
     },
     "itemStyle": {
       "borderRadius": [0, 8, 8, 0],
